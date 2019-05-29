@@ -7,6 +7,10 @@ ________________________________________________________________________________
 ###  Technology/Framework used:
     C++(programming language)
     
+###  System Requirements:
+    Application: Borland Turbo C++ (v3.0) 
+    Application Version: 3.0
+    
 ###  Features:
 This program is a working model of a product management system at a supermarket and therefore has the basic and necessary functionality of managing products. It consists of six operations the user can choose from:
  
@@ -28,5 +32,22 @@ This program is a working model of a product management system at a supermarket 
   The program also has a **taxation** function which calculates the tax of a particular product at a time and adds the tax amount to the price of the product thus making tax calculations more efficient.
   
   Moreover, the program launches a **login** interruption at the starting of the program to provide security to the user and to bar unauthenticated people from unauthorised access to the core of the program.
+  
+###  Resource
+    Header Files used:
+       fstream.h : for file handling, input/output functions
+       conio.h : for console input/output functions
+       process.h : for function declarations and macros used in working with threads and processes
+       stdlib.h : for C++ standard library functions
+       stdio.h : for standard input/output operations
+       iomanip.h: for input/output manipulator functions
+       string.h : for string functions
+       graphics.h: for building different shapes, altering text fonts and size, changing colours etc.
+       dos.h : for handling interrupts, producing sounds, date and time functions
+    Objects used:
+       File objects: f, f2;
+       Class objects: shop;
+    Data Files used:
+      SHOP.dat, TEMP.dat
     
 ###  Author:<br>**AAYUSH SRIVASTAVA**
