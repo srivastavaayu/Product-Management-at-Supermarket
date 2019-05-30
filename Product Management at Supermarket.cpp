@@ -15,7 +15,8 @@ class SHOP
     public:
         int code;
         char name[30];
-        int quantity; double price,tax;
+        int quantity; 
+        double price,tax;
     /****************************************************
                 FUNCTION TO GET INFORMATION
     ****************************************************/
@@ -66,9 +67,11 @@ class SHOP
         cout<<"\n\n\n\n\t\t\t\t\t\t\t";
         gets(name);
         outtextxy(100,400,"\n\tEnter new quantity of product: ");
-        cout<<"\n\n\t\t\t\t\t\t\t"; cin>>quantity;
+        cout<<"\n\n\t\t\t\t\t\t\t"; 
+        cin>>quantity;
         outtextxy(100,440,"\n\tEnter new price of product:");
-        cout<<"\n\n\t\t\t\t\t\t\t"; cin>>price;
+        cout<<"\n\n\t\t\t\t\t\t\t"; 
+        cin>>price;
         taxation();
     }
     /****************************************************
@@ -82,13 +85,24 @@ class SHOP
     ****************************************************/
     double taxation() {
         if(price<1000) {
-        tax=price*0.05; price=price+tax; return price;
-        } if(price>=1000||price<10000) {
-        tax=price*0.15; price=price+tax; return price;
-        } if(price>=10000||price<50000) {
-        tax=price*0.25; price=price+tax; return price;
-        } if(price>=50000) {
-        tax=price*0.4; price=price+tax; return price;
+            tax=price*0.05; 
+            price=price+tax; 
+            return price;
+        } 
+        if(price>=1000||price<10000) {
+            tax=price*0.15; 
+            price=price+tax; 
+            return price;
+        } 
+        if(price>=10000||price<50000) {
+            tax=price*0.25; 
+            price=price+tax; 
+            return price;
+        } 
+        if(price>=50000) {
+            tax=price*0.4; 
+            price=price+tax; 
+            return price;
         }
     }
     /****************************************************
@@ -110,7 +124,9 @@ class SHOP
 void welcome() {
     cleardevice();
     for(int c=0;c<150;c++) {
-    setcolor(WHITE); fillellipse(325,240,c*2,c); delay(8);
+        setcolor(WHITE); 
+        fillellipse(325,240,c*2,c); 
+        delay(8);
     }
     setcolor(0);
     settextstyle(1,0,6);
@@ -121,9 +137,13 @@ void welcome() {
                         CREDITS
 *********************************************************/
 void intro() {
-    cleardevice(); settextstyle(1,0,4);
+    cleardevice(); 
+    settextstyle(1,0,4);
     setcolor(GREEN);
-    rectangle(10,10,630,470); outtextxy(100,50,"Developed by:"); settextstyle(1,0,5); outtextxy(100,200,"AAYUSH SRIVASTAVA");
+    rectangle(10,10,630,470); 
+    outtextxy(100,50,"Developed by:"); 
+    settextstyle(1,0,5); 
+    outtextxy(100,200,"AAYUSH SRIVASTAVA");
     getch();
 }
 /*********************************************************
@@ -139,8 +159,7 @@ void pass() {
     outtextxy(90,160,"Enter username: ");
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
     gets(use);
-    if(strcmp(use,"srivastavaayu")==0)
-    {
+    if(strcmp(use,"srivastavaayu")==0) {
         outtextxy(90,220,"Enter password: ");
         cout<<"\n\n\n\t\t\t\t";
         pass[0]=getch();
@@ -157,42 +176,36 @@ void pass() {
         cout<<"*";
         pass[6]=NULL;
         getch();
-        if(strcmp(pass,"AAYUSHSRIVASTAVA")==0)
-        {
+        if(strcmp(pass,"AAYUSHSRIVASTAVA")==0) {
             int r;
             settextstyle(1,0,4);
             cout<<"\n\t.";
             delay(150);
-            for(r=0; r<8; r++)
-            {
+            for(r=0; r<8; r++) {
                 cout<<"\t.";
                 delay(150);
             }
             cout<<"\t\t."; d
             elay(150);
-            for(r=0; r<8; r++)
-            {
+            for(r=0; r<8; r++) {
                 cout<<"\t.";
                 delay(150);
             }
             cout<<"\t\t.";
             delay(300);
-            for(r=0; r<8; r++)
-            {
+            for(r=0; r<8; r++) {
                 cout<<"\t.";
                 delay(300);
             }
             outtextxy(220,330,"\n\n\n\t\t\t\tAccess granted!");
         }
-        else
-        {
+        else {
             cout<<"\n\n\n\t\t\t\tIncorrect Password!!";
             getch();
             exit(0);
         }
     }
-    else
-    {
+    else {
         cout<<"\n\t\t\t\tIncorrect Username!!";
         getch();
         exit(0);
@@ -201,7 +214,8 @@ void pass() {
 }
 void main() {
     clrscr();
-    int gdriver=DETECT,gmode; initgraph(&gdriver,&gmode,"C:\\TC\\BGI");
+    int gdriver=DETECT,gmode; 
+    initgraph(&gdriver,&gmode,"C:\\TC\\BGI");
     welcome();
     intro();
     pass();
@@ -210,7 +224,7 @@ void main() {
     cleardevice();
     int choice;
     char go;
-    fstream f,f2;
+    fstream f1,f2;
     char ch;
     int co,flag=0;
     char na[30];
@@ -231,16 +245,16 @@ void main() {
     outtextxy(100,250,"\n\tSelect an option (1/2/3/4/5/6): ");
     cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t \t\t\t\t\t";
     cin>>choice;
-    switch(choice)
-    {
+    switch(choice) {
         /***************************************************
                         ADD A NEW PRODUCT
         ****************************************************/
-        case 1: clrscr(); cleardevice();
-                f.open("SHOP .dat",ios::binary|ios::out|ios::app);
+        case 1: clrscr(); 
+                cleardevice();
+                f1.open("SHOP .dat",ios::binary|ios::out|ios::app);
                 shop.getinfo();
-                f.write((char*)&shop,sizeof(SHOP));
-                f.close();
+                f1.write((char*)&shop,sizeof(SHOP));
+                f1.close();
                 setcolor(RED);
                 settextstyle(1,0,2);
                 outtextxy(100,260,"\n\tProduct successfully entered!");
@@ -261,11 +275,11 @@ void main() {
                 cout<<"\n\n\n==================== ============================== =============================";
                 cout<<"\n PRODUCT CODE PRODUCT NAME PRODUCT QUANTITY PRODUCT PRICE";
                 cout<<"\n\n\n==================== ============================== =============================";
-                f.open("SHOP .dat",ios::binary||ios::in);
-                while(f.read((char*)&shop,sizeof(SHOP))) {
+                f1.open("SHOP .dat",ios::binary||ios::in);
+                while(f1.read((char*)&shop,sizeof(SHOP))) {
                     shop.showallinfo();
                 }
-                f.close();
+                f1.close();
                 cout<<"\n\tDo you want to add more products(Y/N)";
                 cin>>go;
                 if(go=='Y'||go=='y')
@@ -294,8 +308,8 @@ void main() {
                 }
                 else
                     outtextxy(100,55,"\n\tInvalid Choice");
-                f.open("SHOP .dat",ios::binary|ios::in);
-                while(f.read((char*)&shop,sizeof(SHOP))) {
+                f1.open("SHOP .dat",ios::binary|ios::in);
+                while(f1.read((char*)&shop,sizeof(SHOP))) {
                     if(ch=='C'||ch=='c') {
                         if(shop.retcode()==co) {
                             shop.showinfo();
@@ -309,7 +323,7 @@ void main() {
                         }
                     }
                 }
-                f.close();
+                f1.close();
                 if(flag==0)
                     outtextxy(100,200,"\n\tProduct does not exist!!");
                 outtextxy(100,280,"\n\tDo you want to search more products(Y/N)");
@@ -341,8 +355,8 @@ void main() {
                 }
                 else
                     outtextxy(100,55,"\n\tInvalid Choice");
-                f.open("SHOP .dat",ios::binary|ios::in|ios::out);
-                while(f.read((char*)&shop,sizeof(SHOP))&&flag==0) {
+                f1.open("SHOP .dat",ios::binary|ios::in|ios::out);
+                while(f1.read((char*)&shop,sizeof(SHOP))&&flag==0) {
                     if(ch=='C'||ch=='c') {
                         if(shop.retcode()==co) {
                             shop.showinfo();
@@ -350,8 +364,8 @@ void main() {
                             "\n\nEnter the new details of product\n");
                             shop.modifyinfo();
                             int pos=(-1)*sizeof(SHOP);
-                            f.seekp(pos,ios::cur);
-                            f.write((char*)&shop,sizeof(SHOP));
+                            f1.seekp(pos,ios::cur);
+                            f1.write((char*)&shop,sizeof(SHOP));
                             outtextxy(100,450,"\n\tProduct Modified!");
                             flag=1;
                         }
@@ -362,14 +376,14 @@ void main() {
                             "\n\nEnter the new details of product\n");
                             shop.modifyinfo();
                             int pos=(-1)*sizeof(SHOP);
-                            f.seekp(pos,ios::cur);
-                            f.write((char*)&shop, sizeof(SHOP));
+                            f1.seekp(pos,ios::cur);
+                            f1.write((char*)&shop, sizeof(SHOP));
                             outtextxy(100,450,"\n\tProduct Modified!");
                             flag=1;
                         }
                     }
                 }
-                f.close();
+                f1.close();
                 if(flag==0)
                     outtextxy(100,450,"\n\tProduct not found!!");
                 else
@@ -402,10 +416,10 @@ void main() {
                 }
                 else
                     outtextxy(100,55,"\n\tInvalid Choice!!");
-                f.open("SHOP .dat",ios::binary|ios::in);
+                f1.open("SHOP .dat",ios::binary|ios::in);
                 f2.open("TEMP .dat",ios::binary|ios::out);
-                f.seekg(0,ios::beg);
-                while(f.read((char*)&shop,sizeof(SHOP))) {
+                f1.seekg(0,ios::beg);
+                while(f1.read((char*)&shop,sizeof(SHOP))) {
                     if(ch=='C'||ch=='c') {
                         if(shop.retcode()!=co) {
                             f2.write((char*)&shop,sizeof(SHOP));
@@ -418,7 +432,7 @@ void main() {
                     }
                 }
                 f2.close();
-                f.close();
+                f1.close();
                 remove("SHOP .dat");
                 rename("TEMP.dat","SHOP.dat");
                 outtextxy(100,80,"\n\tProduct deleted!");
