@@ -1,5 +1,4 @@
 # Product-Management-at-Supermarket
-____________________________________________________________________________________________________________________________
 #                                          PRODUCT MANAGEMENT SYSTEM AT SUPERMARKET
 
   A supermarket is an expansive retail facility carrying a wide range of products under one roof, including full groceries lines and general merchandise. In theory, supermarkets allow customers to satisfy all their routine shopping needs in one trip. This project has all the basic and necessary functions that is involved in the working of product management software. The user can choose from a number of features such as add product(s), modify product(s) with the help of various unique identifiers, delete product(s), or simply search product(s).
